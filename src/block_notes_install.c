@@ -52,7 +52,7 @@ block_notes_check_directory (block_notes_core_s *block_notes_core)
  Copys all the images
  */
 gboolean
-block_notes_install_create_conf_folders_and_files (char *error)
+block_notes_install_create_conf_folders_and_files ()
 {
 	int result;
 	FILE *file;
@@ -67,7 +67,7 @@ block_notes_install_create_conf_folders_and_files (char *error)
 	g_print ("Create .block-notes-gadget\n");
 	conf_path = g_strdup_printf ("%s/.block-notes-gadget", g_get_home_dir ());
 	if (mkdir(conf_path, S_IRWXU | S_IRWXG | S_IRWXO) == -1) {
-		error = "Block Notes 2.0 is not able to create the folder .block-notes-gadget\n in the home directory\n";
+		g_print ("Block Notes 2.0 is not able to create the folder .block-notes-gadget\n in the home directory\n");
 		return FALSE;
 	}
 
@@ -75,25 +75,37 @@ block_notes_install_create_conf_folders_and_files (char *error)
 	file_name = g_strdup_printf ("%s/.block-notes-gadget/data.txt", g_get_home_dir ());
 	file = fopen (file_name, "w");
 	if (file == NULL) {
-		error = "Block Notes 2.0 is not able to create\n .block-notes-gadget/data.txt in the home directory\n";
+		g_print ("Block Notes 2.0 is not able to create\n .block-notes-gadget/data.txt in the home directory\n");
 		return FALSE;		
 	}
 	else {
 		fprintf (file, "\n");
 		fclose (file);
 	}
+
+	g_print ("Create .block-notes-gadget/version.txt\n");
+	file_name = g_strdup_printf ("%s/.block-notes-gadget/version.txt", g_get_home_dir ());
+	file = fopen (file_name, "w");
+	if (file == NULL) {
+	g_print ("Block Notes 2.0 is not able to create\n .block-notes-gadget/version.txt in the home directory\n");
+		return FALSE;
+	}
+	else {
+		fprintf (file, "VERSION: %f\n\n", VERSION);
+		fclose (file);
+	}
 	
 	g_print ("Create .block-notes-gadget/conf\n");
 	conf_path = g_strdup_printf ("%s/.block-notes-gadget/conf", g_get_home_dir ());
 	if (mkdir(conf_path, S_IRWXU | S_IRWXG | S_IRWXO) == -1) {
-		error = "Block Notes 2.0 is not able to create the folder .block-notes-gadget/conf\n in the home directory\n";
+		g_print ("Block Notes 2.0 is not able to create the folder .block-notes-gadget/conf\n in the home directory\n");
 		return FALSE;
 	}
 
 	g_print ("Create .block-notes-gadget/style\n");
 	conf_path = g_strdup_printf ("%s/.block-notes-gadget/style", g_get_home_dir ());
 	if (mkdir(conf_path, S_IRWXU | S_IRWXG | S_IRWXO) == -1) {
-		error = "Block Notes 2.0 is not able to create the folder .block-notes-gadget/style in the home directory";
+		g_print ("Block Notes 2.0 is not able to create the folder .block-notes-gadget/style in the home directory");
 		return FALSE;
 	}
 
@@ -138,14 +150,14 @@ block_notes_install_create_conf_folders_and_files (char *error)
 		fclose  (file);
 	}
 	else {
-		error = "Block Notes 2.0 is not able to create\n .block-notes-gadget/style/style.rc in the home directory\n";
+		g_print ("Block Notes 2.0 is not able to create\n .block-notes-gadget/style/style.rc in the home directory\n");
 		return FALSE;		
 	}
 
 	g_print ("Create .block-notes-gadget/images\n");
 	conf_path = g_strdup_printf ("%s/.block-notes-gadget/images", g_get_home_dir ());
 	if (mkdir(conf_path, S_IRWXU | S_IRWXG | S_IRWXO) == -1) {
-		error = "Block Notes 2.0 is not able to create the folder .block-notes-gadget/images in the home direcortory";
+		g_print ("Block Notes 2.0 is not able to create the folder .block-notes-gadget/images in the home direcortory");
 		return FALSE;
 	}
 
@@ -169,7 +181,7 @@ block_notes_install_create_conf_folders_and_files (char *error)
 		free (buffer);
 	}
 	else {
-		error = "Block Notes 2.0 is not able to copy /images/logo.png\n";
+		g_print ("Block Notes 2.0 is not able to copy /images/logo.png\n");
 		return FALSE;
 	}	
 	g_print ("Copy %s/images/close.png\n", current_dir);
@@ -192,7 +204,7 @@ block_notes_install_create_conf_folders_and_files (char *error)
 		free (buffer);
 	}
 	else {
-		error = "Block Notes 2.0 is not able to copy /images/close.png\n";
+		g_print ("Block Notes 2.0 is not able to copy /images/close.png\n");
 		return FALSE;
 	}
 	
@@ -216,7 +228,7 @@ block_notes_install_create_conf_folders_and_files (char *error)
 		free (buffer);
 	}
 	else {
-		error = "Block Notes 2.0 is not able to copy /images/move.png\n";
+		g_print ("Block Notes 2.0 is not able to copy /images/move.png\n");
 		return FALSE;
 	}
 	
@@ -241,7 +253,7 @@ block_notes_install_create_conf_folders_and_files (char *error)
 		free (buffer);
 	}
 	else {
-		error = "Block Notes 2.0 is not able to copy /images/setting.png\n";
+		g_print ("Block Notes 2.0 is not able to copy /images/setting.png\n");
 		return FALSE;
 	}
 }

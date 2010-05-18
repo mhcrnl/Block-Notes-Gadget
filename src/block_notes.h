@@ -32,6 +32,7 @@
 #define IMAGE_SETTING "images/setting.png"
 #define IMAGE_LOGO "images/logo.png"
 #define STYLE "style/style.rc"
+#define VERSION 2.0
 
 typedef struct {
 	GtkWidget *button_close;

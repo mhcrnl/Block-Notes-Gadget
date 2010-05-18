@@ -76,7 +76,7 @@ block_notes_move_gadget (GtkWidget* pWidget,GdkEventButton* pButton,GdkWindowEdg
 
 
 /*
- Creates main window
+ Saves textview data
 */
 void
 block_notes_save_data (GtkWidget *widget, block_notes_core_s *block_notes_core)
@@ -244,10 +244,9 @@ int main (int argc, char *argv[]){
 
 	/* Check if conf folders and files are available, if not create them */
 	if (block_notes_check_directory (block_notes_core) == FALSE) {
-		char *error;
-		if (block_notes_install_create_conf_folders_and_files (error) == FALSE) {
+		if (block_notes_install_create_conf_folders_and_files () == FALSE) {
 			g_print ("block_notes_install_create_conf_folders_and_files FAILED\n");
-			block_notes_dialog_error (error);
+			block_notes_dialog_error ("Block Notes 2.0 failed installation part.\n\nCheck in ~.block-notes-gadget what is missing.");
 			return 0;
 		}
 	}
