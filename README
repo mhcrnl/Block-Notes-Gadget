@@ -1,0 +1,16 @@
+
+Block Notes 2.0 is a desktop gadget developed using GTK, Cairo Graphics and C.
+
+Block Notes 2.0 is a post-it gadget. Write down what you want, when you want as you want!
+
+The text is contained in ~/.block-notes-gadget/data.txt.
+
+There are two more configuration files located in conf/:
+- block_notes_gadget.conf -> keeps the gadget/border color data
+- block_notes_position.conf -> keeps the coordinates of the last position took up by the gadget (yes, it has memory).
+
+Please, do not change them!!
+
+Screenshots are available in the screenshots folder :D!
+
+Andy
