@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<block-notes-gadget>
+    <info>
+        <name>Block Notes Gadget</name>
+        <version>2.1.0</version>
+        <license>GPL General Public License</license>
+        <description>Block Notes 2.0 - post-it gadget</description>
+    </info>
+
+    <author>
+        <name>Andrea Costa</name>
+        <email>nukemup@hotmail.com</email>
+        <website>http://github.com/andypc</website>
+    </author>
+
+    <graphics width="170" height="200" x_win="-1" y_win="-1">
+    </graphics>
+
+    <setting gadget_red="65535" gadget_green="65535" gadget_blue="65535" border_red="65535" border_green="0" border_blue="0" border_transparency="0.650000" text_red="0" text_green="0" text_blue="0" font="Sans 8" init_text="Black Notes 2.1.0&#10;&#10;Post-It Gadget">
+    </setting>
+</block-notes-gadget>
