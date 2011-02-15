@@ -1,5 +1,6 @@
 /*
- * Copyright © 2010 Andrea Costa <nukemup@hotmail.com>
+ * Copyright © 2010
+ * Andrea Costa <nukemup@hotmail.com>
  *
  * Licensed under the GNU General Public License Version 2
  *

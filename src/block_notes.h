@@ -22,17 +22,19 @@
 #ifndef __BLOCK_NOTES_H__
 #define __BLOCK_NOTES_H__
 
-#include <gtk/gtk.h>
+#include "../lib/libui_gtk.h"
 
-#define DATA_FILE "data.txt"
-#define POSITION_CONF_FILE "conf/block_notes_position.conf"
-#define GADGET_CONF_FILE "conf/block_notes_gadget.conf"
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+
 #define IMAGE_CLOSE "images/close.png"
 #define IMAGE_MOVE "images/move.png"
 #define IMAGE_SETTING "images/setting.png"
 #define IMAGE_LOGO "images/logo.png"
+#define XML_FILE "block-notes-gadget.xml"
 #define STYLE "style/style.rc"
-#define VERSION 2.0
+#define VERSION "2.1.0"
 
 typedef struct {
 	GtkWidget *button_close;
@@ -42,30 +44,31 @@ typedef struct {
 	GtkWidget *icon;
 	GtkWidget *icon_menu;
 	GtkWidget *quit_item;
+	GtkWidget *about_item;
 	GtkWidget *fixed;
 	GtkWidget *scrolled_win;
 	GtkWidget *view;
 	GtkTextBuffer *buffer;
-	float gadget_red;
-	float gadget_green;
-	float gadget_blue;
-	float border_red;
-	float border_green;
-	float border_blue;
+
+  GdkColor gadget;
+  GdkColor border;
+  GdkColor text;
+  char *name;
+  char *version;
 	float border_transparency;
-	float text_red;
-	float text_green;
-	float text_blue;
+
+  /* Gadget's size */
 	int width;
 	int height;
+  /* Gadget's position */
 	int x_window;
 	int y_window;
-	gchar *cur_directory;
+  /* Gadget's presence */
 	gboolean presence;
+
 	PangoFontDescription *font_pango;
 	char *font;
 	gchar *string_init;
 } block_notes_core_s;
-
 
 #endif /* __BLOCK_NOTES_H__ */
