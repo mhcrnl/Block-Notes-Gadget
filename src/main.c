@@ -168,7 +168,8 @@ main (int argc, char *argv[])
                                               TRUE,
                                               TRUE,
                                               FALSE,
-                                              GDK_WINDOW_TYPE_HINT_DOCK);
+                                              GDK_WINDOW_TYPE_HINT_DOCK,
+                                              TRUE);
 
 	/* Create gadget's icon */
   core->icon = (GtkWidget *) libui_gtk_gadget_window_icon_new (core->window,
@@ -178,9 +179,8 @@ main (int argc, char *argv[])
 	block_notes_create_icon_menu (core);
 
 	/* Create button close */
-  core->button_close = libgadget_button_new_with_image (FALSE,
-                                                        0,
-                                                        0,
+  core->button_close = libgadget_button_new_with_image (-1,
+                                                        -1,
                                                         TRUE,
                                                         7,
                                                         7,
@@ -188,9 +188,8 @@ main (int argc, char *argv[])
                                                         IMAGE_CLOSE);
 
 	/* Create button setting */
-  core->button_setting = libgadget_button_new_with_image (FALSE,
-                                                          0,
-                                                          0,
+  core->button_setting = libgadget_button_new_with_image (-1,
+                                                          -1,
                                                           TRUE,
                                                           7,
                                                           7,
@@ -198,9 +197,8 @@ main (int argc, char *argv[])
                                                           IMAGE_SETTING);
 
 	/* Create button move */
-  core->button_move = libgadget_button_new_with_image (FALSE,
-                                                       0,
-                                                       0,
+  core->button_move = libgadget_button_new_with_image (-1,
+                                                       -1,
                                                        TRUE,
                                                        7,
                                                        7,

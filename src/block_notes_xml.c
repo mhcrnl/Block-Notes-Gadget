@@ -68,7 +68,7 @@ block_notes_xml_parse_info (xmlDocPtr doc, xmlNodePtr cur, block_notes_core_s *c
 */
 int
 block_notes_xml_parse (block_notes_core_s *core,
-                       char *sidegadget_xml_file,
+                       char *xml_file,
                        gboolean get_info,
                        gboolean get_author,
                        gboolean get_graphics,
@@ -77,7 +77,7 @@ block_notes_xml_parse (block_notes_core_s *core,
   xmlDocPtr doc;
   xmlNodePtr cur;
 
-  doc = xmlParseFile (sidegadget_xml_file);
+  doc = xmlParseFile (xml_file);
 	
   if (doc == NULL)
     return -1;
@@ -231,12 +231,12 @@ block_notes_xml_update_position (char *sidegadget_xml_file, int x_win, int y_win
  Update XML configuration file
 */
 int
-block_notes_xml_update_setting (char *sidegadget_xml_file, block_notes_core_s *core)
+block_notes_xml_update_setting (char *xml_file, block_notes_core_s *core)
 {
   xmlDocPtr doc;
   xmlNodePtr cur;
 
-  doc = xmlParseFile (sidegadget_xml_file);
+  doc = xmlParseFile (xml_file);
 	
   if (doc == NULL )
     return -1;
@@ -286,7 +286,7 @@ block_notes_xml_update_setting (char *sidegadget_xml_file, block_notes_core_s *c
 
   if (doc != NULL)
   {
-    xmlSaveFormatFile (sidegadget_xml_file, doc, 0);
+    xmlSaveFormatFile (xml_file, doc, 0);
     xmlFreeDoc (doc);
   }
 	return 0;
@@ -297,12 +297,12 @@ block_notes_xml_update_setting (char *sidegadget_xml_file, block_notes_core_s *c
  Save data
 */
 int
-block_notes_xml_save_data (char *sidegadget_xml_file, char *text)
+block_notes_xml_save_data (char *xml_file, char *text)
 {
   xmlDocPtr doc;
   xmlNodePtr cur;
 
-  doc = xmlParseFile (sidegadget_xml_file);
+  doc = xmlParseFile (xml_file);
 	
   if (doc == NULL )
     return -1;
@@ -333,7 +333,7 @@ block_notes_xml_save_data (char *sidegadget_xml_file, char *text)
 
   if (doc != NULL)
   {
-    xmlSaveFormatFile (sidegadget_xml_file, doc, 0);
+    xmlSaveFormatFile (xml_file, doc, 0);
     xmlFreeDoc (doc);
   }
 	return 0;

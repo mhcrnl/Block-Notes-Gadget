@@ -80,12 +80,12 @@ block_notes_setting_dialog_run (block_notes_core_s *core)
   border.green = core->border.green;
   border.blue  = core->border.blue;
 
-  label = libui_gtk_label_new_with_descriptor ("- Gadget -", "sans bold 8", FALSE, 0, 0, FALSE, NULL);
+  label = libui_gtk_label_new_with_descriptor ("- Gadget -", "sans bold 8", -1, -1, NULL);
   gtk_box_pack_start (GTK_BOX(GTK_DIALOG(dialog)->vbox), label, FALSE, FALSE, 5);
 
   /* Gadget background */
   h_box = gtk_hbox_new (FALSE, 0);
-    label = libui_gtk_label_new_with_descriptor ("Background:", "sans 8", TRUE, 80, 25, FALSE, NULL);
+    label = libui_gtk_label_new_with_descriptor ("Background:", "sans 8", 80, 25, NULL);
     gtk_box_pack_start (GTK_BOX(h_box), label, FALSE, FALSE, 10);
 
     button_colore_widget = gtk_color_button_new_with_color (&gadget);
@@ -96,7 +96,7 @@ block_notes_setting_dialog_run (block_notes_core_s *core)
 
   /* Font */
   h_box = gtk_hbox_new (FALSE, 0);
-    label = libui_gtk_label_new_with_descriptor ("Text:", "sans 8", TRUE, 80, 25, FALSE, NULL);
+    label = libui_gtk_label_new_with_descriptor ("Text:", "sans 8", 80, 25, NULL);
     gtk_box_pack_start (GTK_BOX(h_box), label, FALSE, FALSE, 10);
 
     button_font = gtk_font_button_new_with_font (core->font);
@@ -106,7 +106,7 @@ block_notes_setting_dialog_run (block_notes_core_s *core)
 
   /* Font color */
   h_box = gtk_hbox_new (FALSE, 0);
-    label = libui_gtk_label_new_with_descriptor ("Text:", "sans 8", TRUE, 80, 25, FALSE, NULL);
+    label = libui_gtk_label_new_with_descriptor ("Text:", "sans 8", 80, 25, NULL);
     gtk_box_pack_start (GTK_BOX(h_box), label, FALSE, FALSE, 10);
 
     button_colore_text = gtk_color_button_new_with_color (&text);
@@ -116,7 +116,7 @@ block_notes_setting_dialog_run (block_notes_core_s *core)
 	
   /* Width border */
   h_box = gtk_hbox_new (FALSE, 0);
-    label = libui_gtk_label_new_with_descriptor ("Width:", "sans 8", TRUE, 80, 25, FALSE, NULL);
+    label = libui_gtk_label_new_with_descriptor ("Width:", "sans 8", 80, 25, NULL);
     gtk_box_pack_start (GTK_BOX(h_box), label, FALSE, FALSE, 10);
       
     button_spin_width = gtk_spin_button_new_with_range (100, 300, 1);
@@ -127,7 +127,7 @@ block_notes_setting_dialog_run (block_notes_core_s *core)
 
   /* Height border */
   h_box = gtk_hbox_new (FALSE, 0);
-    label = libui_gtk_label_new_with_descriptor ("Height:", "sans 8", TRUE, 80, 25, FALSE, NULL);
+    label = libui_gtk_label_new_with_descriptor ("Height:", "sans 8", 80, 25, NULL);
     gtk_box_pack_start (GTK_BOX(h_box), label, FALSE, FALSE, 10);
 		    
     button_spin_height = gtk_spin_button_new_with_range (150.0, 300.0, 1);
@@ -136,12 +136,12 @@ block_notes_setting_dialog_run (block_notes_core_s *core)
   gtk_widget_show_all (h_box);
   gtk_box_pack_start (GTK_BOX(GTK_DIALOG(dialog)->vbox), h_box, FALSE, FALSE, 5);	
 
-  label = libui_gtk_label_new_with_descriptor ("- Border -", "sans bold 8", FALSE, 0, 0, FALSE, NULL);
+  label = libui_gtk_label_new_with_descriptor ("- Border -", "sans bold 8", -1, -1, NULL);
   gtk_box_pack_start (GTK_BOX(GTK_DIALOG(dialog)->vbox), label, FALSE, FALSE, 5);
 
   /* Border background */
   h_box = gtk_hbox_new (FALSE, 0);
-    label = libui_gtk_label_new_with_descriptor ("Background:", "sans 8", TRUE, 80, 25, FALSE, NULL);
+    label = libui_gtk_label_new_with_descriptor ("Background:", "sans 8", 80, 25, NULL);
     gtk_box_pack_start (GTK_BOX(h_box), label, FALSE, FALSE, 10);
 	
     button_colore_border = gtk_color_button_new_with_color (&border);
@@ -151,7 +151,7 @@ block_notes_setting_dialog_run (block_notes_core_s *core)
 
   /* Border transparency */
   h_box = gtk_hbox_new (FALSE, 0);
-    label = libui_gtk_label_new_with_descriptor ("Transparency:", "sans 8", TRUE, 80, 25, FALSE, NULL);
+    label = libui_gtk_label_new_with_descriptor ("Transparency:", "sans 8", 80, 25, NULL);
     gtk_box_pack_start (GTK_BOX(h_box), label, FALSE, FALSE, 10);
 		    
     button_spin_border = gtk_spin_button_new_with_range (0.0, 1.0, 0.05);
